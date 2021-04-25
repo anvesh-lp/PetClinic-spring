@@ -6,6 +6,7 @@ import com.Anvesh.petclinicspring.services.CrudRepository;
 import java.util.Set;
 
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudRepository<Vet, Long> {
+
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
