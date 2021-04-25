@@ -11,5 +11,5 @@ public interface CrudRepository<T, ID> {
 
     void delete(T object);
 
-    void deleteById(T object);
+    void deleteById(ID id);
 }
