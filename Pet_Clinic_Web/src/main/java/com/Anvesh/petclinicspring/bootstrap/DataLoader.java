@@ -15,13 +15,19 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerServiceMap ownerService;
     private final VetServiceMap vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+    //Using spring context to intitalize the variables
+    public DataLoader(OwnerServiceMap ownerService, VetServiceMap vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
+   /* public DataLoader() {
+        this.ownerService = new OwnerServiceMap();
+        this.vetService = new VetServiceMap();
+    }*/
+
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         //Boiler plate code hard coded
         Owner owner1 = new Owner();
