@@ -1,11 +1,11 @@
 package com.Anvesh.petclinicspring.services.maps;
 
 import com.Anvesh.petclinicspring.model.Owner;
-import com.Anvesh.petclinicspring.services.CrudRepository;
+import com.Anvesh.petclinicspring.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudRepository<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -30,5 +30,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }

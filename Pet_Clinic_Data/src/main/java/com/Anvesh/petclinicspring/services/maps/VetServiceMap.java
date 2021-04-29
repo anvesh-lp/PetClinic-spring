@@ -1,11 +1,11 @@
 package com.Anvesh.petclinicspring.services.maps;
 
 import com.Anvesh.petclinicspring.model.Vet;
-import com.Anvesh.petclinicspring.services.CrudRepository;
+import com.Anvesh.petclinicspring.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudRepository<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
