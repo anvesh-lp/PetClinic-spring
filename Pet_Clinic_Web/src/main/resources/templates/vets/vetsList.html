@@ -3,10 +3,25 @@
       xsi:schemaLocation="http://www.thymelef.org ">
 <head>
     <meta charset="UTF-8">
-    <title>Vets List</title>
+    <title>Owners list</title>
 </head>
 <body>
 <h1 th:text="'Vets List Page'">Index Page</h1>
-
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="v:${vets}">
+        <td th:text="${v.id}">id</td>
+        <td th:text="${v.firstname}">id</td>
+        <td th:text="${v.secondname}">id</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
