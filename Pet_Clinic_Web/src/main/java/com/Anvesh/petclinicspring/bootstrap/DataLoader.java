@@ -31,12 +31,12 @@ public class DataLoader implements CommandLineRunner {
 
         //Boiler plate code hard coded
         Owner owner1 = new Owner();
-        owner1.setId(1L);
+//        owner1.setId(1L);
         owner1.setFirstname("Anvesh");
         owner1.setSecondname("Kunuguntla");
 
         Owner owner2 = new Owner();
-        owner2.setId(2L);
+//        owner2.setId(2L);
         owner2.setFirstname("Anvesh");
         owner2.setSecondname("Kunuguntla");
 
@@ -49,12 +49,12 @@ public class DataLoader implements CommandLineRunner {
         Vet vet1 = new Vet();
         vet1.setFirstname("dr.Anvesh");
         vet1.setSecondname("Kunuguntla");
-        vet1.setId(1L);
+//        vet1.setId(1L);
 
         Vet vet2 = new Vet();
         vet2.setFirstname("dr.Anvesh");
         vet2.setSecondname("Kunuguntla");
-        vet2.setId(2L);
+//        vet2.setId(2L);
 
         vetService.save(vet1);
         vetService.save(vet2);
