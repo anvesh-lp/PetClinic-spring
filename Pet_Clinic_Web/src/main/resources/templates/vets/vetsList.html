@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymelef.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymelef.org ">
+<html lang="en" th:replace="~{fragments/layout :: layout (~{::body},'vets')}" xmlns:th="http://www.thymelef.org">
 <head>
     <meta charset="UTF-8">
     <title>Owners list</title>
 </head>
 <body>
 <h1 th:text="'Vets List Page'">Index Page</h1>
-<table>
+<table class="table table-striped" id="vets">
     <thead>
     <tr>
         <th>Id</th>
