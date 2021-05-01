@@ -1,7 +1,9 @@
 package com.Anvesh.petclinicspring.bootstrap;
 
 import com.Anvesh.petclinicspring.model.Owner;
+import com.Anvesh.petclinicspring.model.PetType;
 import com.Anvesh.petclinicspring.model.Vet;
+import com.Anvesh.petclinicspring.services.PetTypeService;
 import com.Anvesh.petclinicspring.services.maps.OwnerServiceMap;
 import com.Anvesh.petclinicspring.services.maps.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
@@ -14,20 +16,27 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerServiceMap ownerService;
     private final VetServiceMap vetService;
+    private final PetTypeService petTypeService;
 
     //Using spring context to intitalize the variables
-    public DataLoader(OwnerServiceMap ownerService, VetServiceMap vetService) {
+    public DataLoader(OwnerServiceMap ownerService, VetServiceMap vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
-   /* public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
-    }*/
 
     @Override
     public void run(String... args) {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        petTypeService.save(cat);
+
 
         //Boiler plate code hard coded
         Owner owner1 = new Owner();
@@ -60,6 +69,7 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Vets Loaded.........");
+        System.out.println(petTypeService.findAll());
 
     }
 }

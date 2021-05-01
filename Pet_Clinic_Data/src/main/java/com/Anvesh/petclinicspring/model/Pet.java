@@ -30,4 +30,14 @@ public class Pet extends BaseEntity {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "petType=" + petType +
+                ", owner=" + owner +
+                ", date=" + date +
+                "id=" + super.getId() +
+                '}';
+    }
 }
