@@ -1,5 +1,6 @@
 package com.Anvesh.petclinicspring.bootstrap;
 
+import com.Anvesh.petclinicspring.model.Contact;
 import com.Anvesh.petclinicspring.model.Owner;
 import com.Anvesh.petclinicspring.model.PetType;
 import com.Anvesh.petclinicspring.model.Vet;
@@ -37,17 +38,21 @@ public class DataLoader implements CommandLineRunner {
         cat.setName("Cat");
         petTypeService.save(cat);
 
+        Contact contact1 = new Contact("India", "Redlakunta", "9999999");
+
 
         //Boiler plate code hard coded
         Owner owner1 = new Owner();
 //        owner1.setId(1L);
         owner1.setFirstname("Anvesh");
         owner1.setSecondname("Kunuguntla");
+        owner1.setContact(contact1);
 
         Owner owner2 = new Owner();
 //        owner2.setId(2L);
         owner2.setFirstname("Anvesh");
         owner2.setSecondname("Kunuguntla");
+        owner2.setContact(contact1);
 
         //Saving to Map
         ownerService.save(owner1);

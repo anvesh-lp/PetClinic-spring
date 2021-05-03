@@ -5,6 +5,16 @@ public class Contact {
     private String city;
     private String telephone;
 
+
+    public Contact() {
+    }
+
+    public Contact(String address, String city, String telephone) {
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -27,5 +37,14 @@ public class Contact {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", telephone='" + telephone + '\'' +
+                '}';
     }
 }
