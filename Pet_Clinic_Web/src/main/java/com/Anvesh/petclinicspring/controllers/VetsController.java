@@ -15,7 +15,7 @@ public class VetsController {
 
     //when request comes for vets.html page, this method picks it up and gives the responce
 
-    @RequestMapping({"vets", "vets/vetsList"})
+    @RequestMapping({"vets.html", "vets/vetsList"})
     public String vetList(Model model) {
         model.addAttribute("vets", serviceMap.findAll());
         return "vets/vetsList";

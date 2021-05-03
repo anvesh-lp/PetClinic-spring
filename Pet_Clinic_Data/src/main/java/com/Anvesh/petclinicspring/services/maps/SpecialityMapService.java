@@ -1,11 +1,14 @@
 package com.Anvesh.petclinicspring.services.maps;
 
 import com.Anvesh.petclinicspring.model.Speciality;
-import com.Anvesh.petclinicspring.services.CrudRepository;
+import com.Anvesh.petclinicspring.services.SpecialityService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements CrudRepository<Speciality, Long> {
+
+@Service
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
         return super.findAll();
