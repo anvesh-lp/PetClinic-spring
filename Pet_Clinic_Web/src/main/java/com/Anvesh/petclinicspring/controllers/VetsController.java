@@ -1,15 +1,15 @@
 package com.Anvesh.petclinicspring.controllers;
 
-import com.Anvesh.petclinicspring.services.maps.VetServiceMap;
+import com.Anvesh.petclinicspring.services.VetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class VetsController {
-    private final VetServiceMap serviceMap;
+    private final VetService serviceMap;
 
-    public VetsController(VetServiceMap serviceMap) {
+    public VetsController(VetService serviceMap) {
         this.serviceMap = serviceMap;
     }
 
