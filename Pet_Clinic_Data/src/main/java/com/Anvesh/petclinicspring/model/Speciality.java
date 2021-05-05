@@ -1,5 +1,9 @@
 package com.Anvesh.petclinicspring.model;
 
+
+import javax.persistence.Entity;
+
+@Entity
 public class Speciality extends BaseEntity {
     private String description;
 
