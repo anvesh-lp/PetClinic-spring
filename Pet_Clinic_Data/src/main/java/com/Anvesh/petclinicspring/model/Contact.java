@@ -1,10 +1,18 @@
 package com.Anvesh.petclinicspring.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Contact {
     private String address;
     private String city;
     private String telephone;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     public Contact() {
     }
@@ -46,5 +54,13 @@ public class Contact {
                 ", city='" + city + '\'' +
                 ", telephone='" + telephone + '\'' +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

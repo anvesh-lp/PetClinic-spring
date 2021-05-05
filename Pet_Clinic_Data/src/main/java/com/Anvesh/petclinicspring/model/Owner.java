@@ -1,9 +1,16 @@
 package com.Anvesh.petclinicspring.model;
 
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "Owners")
 public class Owner extends Person {
-    private Set<Pet> pets;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private Set<Pet> pets = new HashSet<>();
+    @OneToOne
     private Contact contact;
 
     public Contact getContact() {
