@@ -1,5 +1,4 @@
 package com.Anvesh.petclinicspring.services.maps;
-
 import com.Anvesh.petclinicspring.model.Owner;
 import com.Anvesh.petclinicspring.services.OwnerService;
 import org.springframework.context.annotation.Profile;
@@ -10,6 +9,7 @@ import java.util.Set;
 @Service
 @Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -38,6 +38,8 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findBySecondname(String lastName) {
-        return null;
+        return super.findAll().stream()
+                .filter(owner -> owner.getSecondname().equals(lastName))
+                .findFirst().orElse(null);
     }
 }
