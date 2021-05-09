@@ -1,7 +1,7 @@
 package com.Anvesh.petclinicspring.services.jpaServices;
 
 import com.Anvesh.petclinicspring.model.Visit;
-import com.Anvesh.petclinicspring.repositories.VisitRepository;
+import com.Anvesh.petclinicspring.repositoriesJPA.VisitRepository;
 import com.Anvesh.petclinicspring.services.VisitService;
 
 import java.util.HashSet;

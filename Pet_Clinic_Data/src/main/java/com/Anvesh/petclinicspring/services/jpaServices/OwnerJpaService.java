@@ -1,9 +1,9 @@
 package com.Anvesh.petclinicspring.services.jpaServices;
 
 import com.Anvesh.petclinicspring.model.Owner;
-import com.Anvesh.petclinicspring.repositories.OwnerRepository;
-import com.Anvesh.petclinicspring.repositories.PetRepository;
-import com.Anvesh.petclinicspring.repositories.PetTypeRepository;
+import com.Anvesh.petclinicspring.repositoriesJPA.OwnerRepository;
+import com.Anvesh.petclinicspring.repositoriesJPA.PetRepository;
+import com.Anvesh.petclinicspring.repositoriesJPA.PetTypeRepository;
 import com.Anvesh.petclinicspring.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.Anvesh.petclinicspring.services.jpaServices;
 
 import com.Anvesh.petclinicspring.model.Speciality;
-import com.Anvesh.petclinicspring.repositories.SpecialityRepository;
+import com.Anvesh.petclinicspring.repositoriesJPA.SpecialityRepository;
 import com.Anvesh.petclinicspring.services.SpecialityService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

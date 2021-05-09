@@ -1,4 +1,4 @@
-package com.Anvesh.petclinicspring.repositories;
+package com.Anvesh.petclinicspring.repositoriesJPA;
 
 import com.Anvesh.petclinicspring.model.Visit;
 import org.springframework.data.repository.CrudRepository;
