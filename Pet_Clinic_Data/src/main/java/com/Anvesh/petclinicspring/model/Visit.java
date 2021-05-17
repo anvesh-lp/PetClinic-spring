@@ -1,11 +1,18 @@
 package com.Anvesh.petclinicspring.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Visit extends BaseEntity {
     private LocalDate date;
     private String description;

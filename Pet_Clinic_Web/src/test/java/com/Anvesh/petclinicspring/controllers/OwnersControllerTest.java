@@ -30,7 +30,6 @@ class OwnersControllerTest {
     Set<Owner> ownerSet = new HashSet<>();
     MockMvc mockMvc;
 
-
     @BeforeEach
     void setUp() {
         ownerSet.add(Owner.builder().id(1L).build());

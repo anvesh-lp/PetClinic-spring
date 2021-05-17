@@ -1,10 +1,17 @@
 package com.Anvesh.petclinicspring.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
+
+@Getter
+@Setter
+@AllArgsConstructor
+@MappedSuperclass /*To notify database not to create a tabole for this*/
 @NoArgsConstructor
 public class Person extends BaseEntity {
     private String firstname;

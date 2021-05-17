@@ -1,9 +1,17 @@
 package com.Anvesh.petclinicspring.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Vet extends Person {
 
