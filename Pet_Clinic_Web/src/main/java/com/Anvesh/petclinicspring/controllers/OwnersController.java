@@ -72,7 +72,7 @@ public class OwnersController {
             return "redirect:/owners/" + savedOwner.getId();
         }
     }
-
+//when user visits page for first time to update owner to autopuplate data
     @GetMapping({"{id}/edit"})
     public String initialupdateOwner(@PathVariable Long id, Model model) {
         Owner owner = ownerService.findById(id);
