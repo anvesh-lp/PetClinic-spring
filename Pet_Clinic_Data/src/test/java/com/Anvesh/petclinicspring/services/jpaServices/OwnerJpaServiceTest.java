@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -82,5 +83,12 @@ class OwnerJpaServiceTest {
         Owner owner = ownerJpaService.findBySecondname(lname);
         assertEquals(lname, owner.getSecondname());
 
+    }
+
+    @Test
+    void findbyLastNameLike() {
+        when(ownerRepository.findBySecondnameIsLike(anyString())).thenReturn(List.of(Owner.builder().build(), Owner.builder().build()));
+        List<Owner> owners = ownerJpaService.findbyLastnameLike("Anvesh");
+        assertEquals(2, owners.size());
     }
 }
