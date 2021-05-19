@@ -14,7 +14,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -23,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class OwnersControllerTest {
 
     @Mock
-    OwnerService service;
+    OwnerService ownerService;
     //To inject Mocks
     @InjectMocks
     OwnersController controller;
@@ -40,7 +41,7 @@ class OwnersControllerTest {
 
     @Test
     void ownerList() throws Exception {
-        when(service.findAll()).thenReturn(ownerSet);
+        when(ownerService.findAll()).thenReturn(ownerSet);
         mockMvc.perform(get("/owners"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("owners/ownersList"))
@@ -50,5 +51,17 @@ class OwnersControllerTest {
     @Test
     void findOwner() throws Exception {
         mockMvc.perform(get("/owners/find")).andExpect(view().name("owners/find"));
+    }
+
+    @Test
+    void findsOwnerDetails() throws Exception {
+        Owner owner = new Owner();
+        owner.setId(1L);
+        when(ownerService.findById(anyLong())).thenReturn(owner);
+        mockMvc.perform(get("/owners/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerdetails"))
+                .andExpect(model().attribute("owner", hasProperty("id", is(1L))));
+
     }
 }
