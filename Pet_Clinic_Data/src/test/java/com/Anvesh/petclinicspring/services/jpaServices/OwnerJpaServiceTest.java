@@ -87,7 +87,7 @@ class OwnerJpaServiceTest {
 
     @Test
     void findbyLastNameLike() {
-        when(ownerRepository.findBySecondnameIsLike(anyString())).thenReturn(List.of(Owner.builder().build(), Owner.builder().build()));
+        when(ownerRepository.findBySecondnameContainingIgnoreCase(anyString())).thenReturn(List.of(Owner.builder().build(), Owner.builder().build()));
         List<Owner> owners = ownerJpaService.findbyLastnameLike("Anvesh");
         assertEquals(2, owners.size());
     }

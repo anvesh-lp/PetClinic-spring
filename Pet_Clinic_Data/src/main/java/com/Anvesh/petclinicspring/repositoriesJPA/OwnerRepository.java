@@ -8,5 +8,6 @@ import java.util.List;
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
     Owner findBySecondname(String name);
 
-    List<Owner> findBySecondnameIsLike(String secondname);
+    List<Owner> findBySecondnameContainingIgnoreCase(String secondname);
+
 }

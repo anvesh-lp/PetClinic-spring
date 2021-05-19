@@ -59,6 +59,6 @@ public class OwnerJpaService implements OwnerService {
 
     @Override
     public List<Owner> findbyLastnameLike(String secondname) {
-        return ownerRepository.findBySecondnameIsLike(secondname);
+        return ownerRepository.findBySecondnameContainingIgnoreCase(secondname);
     }
 }
