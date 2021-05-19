@@ -6,8 +6,10 @@ import com.Anvesh.petclinicspring.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,6 +19,9 @@ import java.util.List;
 @Controller
 public class OwnersController {
     private final OwnerService ownerService;
+
+    private final String VIEW_CREATE_OR_UPDATE = "owners/createOrUpdate";
+    private final String VIEW_OWNERS_LIST = "owners/ownersList";
 
     public OwnersController(OwnerService ownerService) {
         this.ownerService = ownerService;
@@ -39,7 +44,7 @@ public class OwnersController {
             return "redirect:/owners/" + owners.get(0).getId();
         } else {
             model.addAttribute("selections", owners);
-            return "owners/ownersList";
+            return VIEW_OWNERS_LIST;
         }
     }
 
@@ -50,4 +55,35 @@ public class OwnersController {
         mav.addObject(ownerService.findById(id));
         return mav;
     }
+
+    @GetMapping({"/new"})
+    public String initOwner(Model model) {
+        Owner owner = new Owner();
+        model.addAttribute("owner", owner);
+        return VIEW_CREATE_OR_UPDATE;
+    }
+
+    @PostMapping({"/new"})
+    public String processCreatOrUpdate(@Validated Owner owner, BindingResult result) {
+        if (result.hasErrors()) {
+            return VIEW_CREATE_OR_UPDATE;
+        } else {
+            Owner savedOwner = ownerService.save(owner);
+            return "redirect:/owners/" + savedOwner.getId();
+        }
+    }
+
+    @GetMapping({"{id}/edit"})
+    public String initialupdateOwner(@PathVariable Long id, Model model) {
+        Owner owner = ownerService.findById(id);
+        model.addAttribute("owner", owner);
+        return VIEW_CREATE_OR_UPDATE;
+    }
+
+    @PostMapping({"{id}/edit"})
+    public String performUpdateOwner(Owner owner, @PathVariable Long id) {
+        Owner saved = ownerService.save(owner);
+        return "redirect:/owners/" + saved.getId();
+    }
+
 }
