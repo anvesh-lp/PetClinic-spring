@@ -24,9 +24,6 @@ public class PetType extends BaseEntity {
 
     @Override
     public String toString() {
-        return "PetType{" +
-                "name='" + name + '\'' +
-                "Id=" + super.getId() +
-                '}';
+        return name;
     }
 }
