@@ -13,11 +13,11 @@ public class VetsController {
         this.serviceMap = serviceMap;
     }
 
-    //when request comes for vets.html page, this method picks it up and gives the responce
+    //when request comes for index.html page, this method picks it up and gives the responce
 
     @RequestMapping({"vets.html", "vets/vetsList"})
     public String vetList(Model model) {
         model.addAttribute("vets", serviceMap.findAll());
-        return "vets/vetsList";
+        return "vets/index";
     }
 }
